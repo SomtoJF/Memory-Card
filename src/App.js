@@ -1,16 +1,15 @@
-import './App.css';
-import { useState, useEffect } from 'react';
+import "./App.sass";
+import Nav from "./Components/Nav";
+import Main from "./Components/Main";
+import { useState } from "react";
 
 function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const [images, setImages] = useState([]);
 
-  // activeImages is an array of length 6
-  const [activeImages, setActiveImages] = useState([]);
   return (
     <div className="App">
-      <Nav />
+      <Nav score={score} highScore={highScore} />
       <Main />
     </div>
   );
