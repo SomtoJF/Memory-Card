@@ -10,7 +10,7 @@ import {
 	image7,
 } from "../Images/Images";
 
-const Main = (props) => {
+const Main = ({ incrementHighScore, incrementScore, clearScore }) => {
 	const [images, setImages] = useState([
 		image1,
 		image2,
@@ -23,6 +23,8 @@ const Main = (props) => {
 
 	// activeImages is an array of length 6
 	const [activeImages, setActiveImages] = useState([]);
+
+    const [selectedImages, setSelectedImages] = useState([]);
 
 	useEffect(() => {
 		setActiveImages(changeActiveImages(images, 6));
@@ -50,8 +52,19 @@ const Main = (props) => {
 			key={index}
 			className="card"
 			title="card"
-			onClick={() => {
+            id={item}
+			onClick={(e) => {
 				setActiveImages(changeActiveImages(images, 6));
+                if(!selectedImages.includes(e.target.id))
+                {
+                    setSelectedImages(selectedImages.concat(e.target.id))
+                    incrementScore();
+                    incrementHighScore();
+                }
+                else{
+                    setSelectedImages([]);
+                    clearScore();
+                };
 			}}
 		/>
 	));
