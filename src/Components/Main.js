@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import "../Styles/Main.sass";
 import {
 	image1,
@@ -40,7 +40,7 @@ const Main = ({ incrementHighScore, incrementScore, clearScore }) => {
 	// activeImages is an array of length 6
 	const [activeImages, setActiveImages] = useState([]);
 
-    const [selectedImages, setSelectedImages] = useState([]);
+	const [selectedImages, setSelectedImages] = useState([]);
 
 	useEffect(() => {
 		setActiveImages(changeActiveImages(images, 6));
@@ -68,19 +68,17 @@ const Main = ({ incrementHighScore, incrementScore, clearScore }) => {
 			key={index}
 			className="card"
 			title="card"
-            id={item}
+			id={item}
 			onClick={(e) => {
 				setActiveImages(changeActiveImages(images, 6));
-                if(!selectedImages.includes(e.target.id))
-                {
-                    setSelectedImages(selectedImages.concat(e.target.id))
-                    incrementScore();
-                    incrementHighScore();
-                }
-                else{
-                    setSelectedImages([]);
-                    clearScore();
-                };
+				if (!selectedImages.includes(e.target.id)) {
+					setSelectedImages(selectedImages.concat(e.target.id));
+					incrementScore();
+					incrementHighScore();
+				} else {
+					setSelectedImages([]);
+					clearScore();
+				}
 			}}
 		/>
 	));
