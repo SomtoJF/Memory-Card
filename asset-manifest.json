@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Memory-Card/static/css/main.c836ee29.css",
+    "main.js": "/Memory-Card/static/js/main.7be0d19b.js",
+    "static/media/logo.png": "/Memory-Card/static/media/logo.497ad8bd77a8d2767984.png",
+    "index.html": "/Memory-Card/index.html",
+    "main.c836ee29.css.map": "/Memory-Card/static/css/main.c836ee29.css.map",
+    "main.7be0d19b.js.map": "/Memory-Card/static/js/main.7be0d19b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c836ee29.css",
+    "static/js/main.7be0d19b.js"
+  ]
+}
